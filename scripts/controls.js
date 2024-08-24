@@ -1,24 +1,12 @@
 const btn1= document.getElementById('gologinbtn');
-const swiper = new Swiper('.swiper', {  
-    //Optional parameters  
-    direction: 'horizontal',  
-    loop: true,  
-  
-    // If we need pagination  
-    pagination: {  
-      el: '.swiper-pagination',  
-    },  
-  
-    // Navigation arrows  
-    navigation: {  
-      nextEl: '.swiper-button-next',  
-      prevEl: '.swiper-button-prev',  
-    },  
-   });
+const user =document.getElementById("username");
+const Submitbtn =document.getElementById("sbtn");
+const inputpass = document.getElementById("password");
+const eyes = document.getElementById("eyes");
+
+
 
 function Eyecontrolpass(){
-    const inputpass = document.getElementById("password");
-    const eyes = document.getElementById("eyes");
       if(inputpass.type === "password"){
        inputpass.type = "text";
        eyes.classList.remove("fa-eye");
@@ -36,15 +24,25 @@ function Eyecontrolpass(){
 
 
 function GoToonboard(){
- window.location.href= "http://localhost:5173/index.html"
+ window.location.href= "/index.html"
 }
 
 function GoToLogin(){
-    window.location.href= "http://localhost:5173/login.html"
+    window.location.href= "/login.html"
 }
 
 function GoToSignUp(){
-    window.location.href= "http://localhost:5173/signup.html"
-   }
+    window.location.href= "/signup.html"
+}
 
-   
+function ActiveBtn() {
+    if(inputpass.value != "" && user.value != ""){
+    //  Submitbtn.classList.add("bg-black")
+       Submitbtn.style.backgroundColor = "black";
+    }
+    else{
+        // Submitbtn.classList.remove("bg-black")
+        Submitbtn.style.backgroundColor = "";
+ }
+};
+inputpass.addEventListener("input", ActiveBtn)
