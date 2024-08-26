@@ -1,47 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8.2.2/swiper-bundle.min.css">  
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div class="swiper">  
-      <div class="swiper-wrapper">  
-       <!-- Slide 1 -->  
-       <div class="swiper-slide flex flex-wrap justify-center items-center">  
-         <img src="/onboarding2.png" alt="Red and black sneakers" class="w-[430px] h-[657px] mb-4">  
-         <p class="text-center mb-2 font-semibold text-2xl mx-2">We provide high quality products just for you</p>  
-         <button class="w-[430px] mt-12 mx-2 bg-gray-800 text-white px-4 py-2 rounded-full mb-4">Next</button>  
-       </div>  
+<!DOCTYPE html>  
+<html lang="en">  
+  <head>  
+   <meta charset="UTF-8" />  
+   <link rel="icon" type="image/svg+xml" href="/vite.svg" />  
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8.2.2/swiper-bundle.min.css">   
+   <title>on boarding</title>  
+  </head>  
+  <body>  
+   <div class="swiper">   
+    <div class="swiper-wrapper">   
+     <!-- Slide 1 -->   
+     <div class="swiper-slide flex flex-wrap justify-center items-center">   
+      <img src="/onboarding2.png" alt="Red and black sneakers" class="w-[430px] h-[657px] mb-4">   
+      <p class="text-center mb-2 font-semibold text-2xl mx-2">We provide high quality products just for you</p>   
+     </div>   
      
-       <!-- Slide 2 -->  
-       <div class="swiper-slide flex flex-wrap justify-center items-center">  
-         <img src="/onboarding1.png" alt="Blue sneakers with orange laces" class="w-[428px] h-[643px] mb-4">  
-         <p class="text-center mb-2 font-semibold text-2xl mx-2">Your satisfaction is our number one priority</p>  
-         <button class="w-[430px] mt-16 mx-2 bg-gray-800 text-white px-5 py-2 rounded-full mb-1">Next</button>  
-       </div>  
+     <!-- Slide 2 -->   
+     <div class="swiper-slide flex flex-wrap justify-center items-center">   
+      <img src="/onboarding1.png" alt="Blue sneakers with orange laces" class="w-[428px] h-[643px] mb-4">   
+      <p class="text-center mb-2 font-semibold text-2xl mx-2">Your satisfaction is our number one priority</p>   
+     </div>   
      
-       <!-- Slide 3 -->  
-       <div class="swiper-slide flex flex-wrap justify-center items-center  w-[430px]">  
-         <img src="/onboarding3.png" alt="Black and white sneakers" class="w-[430px] h-[644px] mb-4">  
-         <p class="text-center mb-2 font-semibold text-2xl mx-2">Let's fulfill your fashion needs with shoearight now!</p>  
-         <button id="gologinbtn" onclick="GoToLogin()" class="w-[430px] mt-16 mx-2 bg-gray-800 text-white px-4 py-2 rounded-full mb-1">Get Started</button>  
-       </div>  
-      </div>  
-      <!-- Add Pagination -->  
-      <div class="my-14 swiper-pagination"></div>  
+     <!-- Slide 3 -->   
+     <div class="swiper-slide flex flex-wrap justify-center items-center  w-[430px]">   
+      <img src="/onboarding3.png" alt="Black and white sneakers" class="w-[430px] h-[644px] mb-4">   
+      <p class="text-center mb-2 font-semibold text-2xl mx-2">Let's fulfill your fashion needs with shoearight now!</p>   
+     </div>   
+    </div>   
+    <!-- Add Pagination -->   
+    <div class="my-16 swiper-pagination" id="pagesb"> </div>   
      
-      <!-- Add Navigation -->  
-      <div class=""></div>  
-      <div class=""></div>  
-     </div>  
+    <!-- Add Navigation -->   
+    <!-- <div class=""></div>   
+    <div class=""></div>   
+    </div>    -->
      
-     <script src="https://cdn.jsdelivr.net/npm/swiper@8.2.2/swiper-bundle.min.js"></script>  
-     <script src="scripts/index.js"></script>
-     <script src="scripts/controls.js"></script>
-    <script type="module" src="/main.js"></script>
-  </body>
+  <div class="flex flex-nowrap justify-center items-center">
+    <button id="next-button" class="w-[370px] mt-12 mx-2 bg-gray-800 text-white px-4 py-2 rounded-full mb-4">Next</button>   
+    <button id="get-started-button" class="w-[370px] mt-12 mx-2 bg-gray-800 text-white px-4 py-2 rounded-full mb-4" style="display: none;" onclick="GoToLogin()">Get Started</button>
+  </div>   
+     
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8.2.2/swiper-bundle.min.js"></script>   
+    <script src="scripts/index.js"></script>  
+    <script src="scripts/controls.js"></script>  
+   <script type="module" src="/main.js"></script>   
+  </body>  
 </html>
