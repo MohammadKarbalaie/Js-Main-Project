@@ -1,6 +1,6 @@
 import { tokenName } from "./constant";
 
-export const setSession = () =>{
+export const setSessionToken = (token) =>{
     localStorage.setItem(tokenName,token);
 };
 

@@ -10,3 +10,4 @@ export async function signup(data) {
     const response = await httpClient().post(urls.auth.signup, data)
     return response.data;
 }
+

@@ -1,7 +1,7 @@
 export const urls ={
     auth:{
         login: "/auth/login",
-        signup: "/auth/signup",
+        signup: "/auth/signup",  
     },
     user: "/user",
     sneaker: "/sneaker",
