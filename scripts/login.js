@@ -14,12 +14,11 @@ loginForm.addEventListener("submit", async (event) => {
       password: passwordInput.value,
     });
     // setSessionToken(response.token);
+    console.log(response);
     toast("Logged in", "success");
     setTimeout(() => {
       window.location.href = "/home";
     }, 3000);
-    console.log('ok');
-    
   } catch (error) {
     console.log(error);
     

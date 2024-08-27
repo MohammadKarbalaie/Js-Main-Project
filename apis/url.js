@@ -4,4 +4,7 @@ export const urls ={
         signup: "/auth/signup",
     },
     user: "/user",
+    sneaker: "/sneaker",
+    sneakeritm: "/sneaker/item/{id}",
+    brands:"sneaker/brands",
 };
