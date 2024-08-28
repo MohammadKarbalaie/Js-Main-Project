@@ -6,5 +6,5 @@ export const urls ={
     user: "/user",
     sneaker: "/sneaker",
     sneakeritm: "/sneaker/item/{id}",
-    brands:"sneaker/brands",
+    brands:"/sneaker/brands",
 };

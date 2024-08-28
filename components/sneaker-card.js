@@ -3,9 +3,9 @@ import { toast } from "../libs/toast";
 
 
 
-async function fetchProducts() {
+async function fetchProducts(page = 1) {
     try {
-        const response = await getProducts();
+        const response = await getProducts(page);
         const products = response.data;
         displayProducts(products);
     } catch (error) {
@@ -27,9 +27,20 @@ function displayProducts(products) {
        
     });
     const productCount = products.length;
+    setupPagination(productCount);
+}
 
+function setupPagination(productCount) {
+    const totalPages = Math.ceil(42 / 10);
+    const paginationDiv = document.getElementById('pagination');
+    paginationDiv.innerHTML = '';
+    for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement('button');
+        button.className = "w-10 ml-4 border-2 px-4 py-2 cursor-pointer";
+        button.textContent = i;
+        button.addEventListener('click', () => fetchProducts(i));
+        paginationDiv.appendChild(button);
+    }
 }
 
 fetchProducts();
-
-
