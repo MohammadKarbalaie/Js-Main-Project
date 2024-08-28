@@ -7,7 +7,4 @@ export async function getUserInfo() {
   return response.data;
 }
 
-export async function getProducts(page){
-  const response = await httpClient().get(urls.sneaker, { params: { page: page, limit: 10 } });
-  return response.data;
-}
+
