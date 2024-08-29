@@ -11,7 +11,7 @@ async function fetchProducts(page = 1, brand = null) {
     }
 }
 
-function displayProducts(products) {
+ function displayProducts(products) {
     const productDiv = document.getElementById('p-Elemnet');
     productDiv.innerHTML = '';
     products.forEach(product => {
