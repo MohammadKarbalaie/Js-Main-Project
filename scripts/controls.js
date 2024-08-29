@@ -45,4 +45,4 @@ function ActiveBtn() {
         Submitbtn.style.backgroundColor = "";
  }
 };
-// inputpass.addEventListener("input", ActiveBtn)
+inputpass.addEventListener("input", ActiveBtn)

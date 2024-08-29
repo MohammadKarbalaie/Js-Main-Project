@@ -22,8 +22,10 @@
       </header>  
 
       <div class="w-full px-8 relative mx-auto">
-      <i class="fas fa-search opacity-60 absolute top-2 text-xl left-10 cursor-pointer " ></i>
-      <input type="text" id="text" class="bg-gray-50 border px-8 border-gray-300 text-gray-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-100 dark:border-gray-200 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search">  
+        <form id="search-form" onsubmit="getSearchByProducts(query)">
+          <input type="text" id="text-search" class="bg-gray-50 border px-8 border-gray-300 text-gray-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-100 dark:border-gray-200 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search">  
+          <button type="submit" class="fas fa-search opacity-60 absolute top-2 text-xl left-10 cursor-pointer " id="search-btn"></button>
+        </form>
       </div> 
 
       <!-- Filter buttons -->  
@@ -58,6 +60,8 @@
       </footer>
     </div>
    <script src="/scripts/controls.js"></script>
+   <script defer type="module" src="/scripts/search.js"></script>
+   <script defer type="module" src="/components/brand-sneaker-card.js"></script>
    <script defer type="module" src="/components/sneaker-card.js"></script>
    <script defer type="module" src="/scripts/dashboard.js"></script>
     <script defer type="module" src="/main.js"></script>

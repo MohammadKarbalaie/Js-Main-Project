@@ -20,4 +20,11 @@ const swiper = new Swiper('.swiper', {
     }  
    },  
   },  
-}); 
+});
+
+
+function changeSlide(direction) {
+  swiper.slideTo(swiper.activeIndex + direction);
+}
+
+
