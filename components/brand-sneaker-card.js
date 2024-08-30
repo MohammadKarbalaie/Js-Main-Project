@@ -44,7 +44,6 @@ function attachBrandClickEvents() {
             event.target.classList.remove('bg-white');
             event.target.classList.add('bg-black');
             event.target.style.color = "white";
-            console.log(brandName);
             if (brandName) {
                 await fetchProductsByBrand(brandName);
             } else {
