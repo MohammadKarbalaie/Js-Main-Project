@@ -2,7 +2,7 @@ import { urls } from "../url";
 import { httpClient } from "../client";
 
 export async function getBrandByName(page, brands = null) {  
-    const params = { page, limit: 42 };  
+    const params = { page, limit: 10 };  
     if (brands) {  
        params.brands = brands;  
     }  
