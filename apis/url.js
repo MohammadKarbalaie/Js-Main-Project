@@ -5,6 +5,6 @@ export const urls ={
     },
     user: "/user",
     sneaker: "/sneaker",
-    sneakeritm: "/sneaker/item/{id}",
+    sneakeritm: (id) => `/sneaker/item/${id}`,
     brands:"/sneaker/brands",
 };
