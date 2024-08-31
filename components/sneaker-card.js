@@ -20,7 +20,6 @@ function displayProducts(products) {
       const productItem = document.createElement('div');
       productItem.className = "flex flex-col mt-4";
       productItem.style.cursor = "pointer";
-
       productItem.innerHTML = `
           <img src="${product.imageURL}" alt="${product.name}" class="w-48 h-48 mb-3"> 
           <p class="text-lg font-bold">${product.name}</p>  
