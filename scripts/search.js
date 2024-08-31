@@ -49,7 +49,7 @@ async function displayResults(result) {
       } else {  
         paginatedItems.forEach((product) => {  
            const productHTML = `  
-           <div class="flex flex-col mt-4">  
+           <div class="flex flex-col mt-4" data-id="${product.id}">  
               <img src="${product.imageURL}" alt="${product.name}" class="w-48 h-48 mb-3">  
               <p class="text-lg font-bold">${product.name}</p>  
               <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>  
@@ -57,11 +57,25 @@ async function displayResults(result) {
            `;  
            container.innerHTML += productHTML;  
         });  
+        const productElements = container.children;  
+        Array.from(productElements).forEach(element => {  
+          element.addEventListener('click', () => {  
+             const productId = element.getAttribute('data-id');  
+             redirectToDetails(productId);  
+         });
+      }); 
       }  
    } catch (error) {  
       errorHandler(error);
    }  
 }  
+
+function redirectToDetails(id) {
+   window.location.href = `/product-details.html?id=${id}`;
+ }
+ 
+ // Make it globally accessible
+ window.redirectToDetails = redirectToDetails;
   
 
 function setupPagination(totalItems) {

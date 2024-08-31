@@ -89,19 +89,35 @@ async function fetchProducts(page) {
     }
 }
 
-function displayProducts(products) {
-    const productDiv = document.getElementById('p-Elemnet');
-    productDiv.innerHTML = '';
-    products.forEach(product => {
-        productDiv.innerHTML += `
-          <div class="flex flex-col mt-4"> 
-          <img src="${product.imageURL}" alt="${product.name}" class="w-48 h-48 mb-3"> 
-          <p class="text-lg font-bold">${product.name}.</p>  
-          <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>
-          </div> 
-        `;
-    });
-}
+function displayProducts(products) {  
+    const productDiv = document.getElementById('p-Elemnet');  
+    productDiv.innerHTML = '';  
+    products.forEach(product => {  
+       productDiv.innerHTML += `  
+        <div class="flex flex-col mt-4" data-id="${product.id}">  
+        <img src="${product.imageURL}" alt="${product.name}" class="w-48 h-48 mb-3">  
+        <p class="text-lg font-bold">${product.name}.</p>   
+        <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>  
+        </div>  
+       `;  
+    });  
+   
+    // Add event listener to each product element  
+    const productElements = productDiv.children;  
+    Array.from(productElements).forEach(element => {  
+       element.addEventListener('click', () => {  
+         const productId = element.getAttribute('data-id');  
+         redirectToDetails(productId);  
+       });  
+    });  
+ }
+
+function redirectToDetails(id) {
+    window.location.href = `/product-details.html?id=${id}`;
+  }
+  
+  // Make it globally accessible
+  window.redirectToDetails = redirectToDetails;
 
 async function clickBrand(event){
     let brandName = event.target.textContent;
