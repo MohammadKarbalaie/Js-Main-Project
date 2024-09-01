@@ -22,7 +22,7 @@ function displayProducts(products) {
         productItem.className = "flex flex-col mt-4";
         productItem.style.cursor = "pointer";
         productItem.innerHTML = `
-            <img src="${product.imageURL}" alt="${product.name}" class="w-48 h-48 mb-3"> 
+            <img src="${product.imageURL}" alt="${product.name}"> 
             <p class="text-lg font-bold">${product.name}</p>  
             <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>
         `;
@@ -48,9 +48,9 @@ function updatePagination(currentPage) {
         const pageButton = document.createElement('button');
         pageButton.innerText = i;
         pageButton.className = "pagination-button";
-        pageButton.style.padding= '10px 15px'
+        pageButton.style.padding= '5px 10px'
         pageButton.style.border = "1px solid gray"
-        pageButton.style.margin ="0px 10px"
+        pageButton.style.margin ="0px 5px"
         pageButton.style.backgroundColor = (i === currentPage) ? 'black' : 'white';
         pageButton.style.color = (i === currentPage) ? 'white' : 'black';
 

@@ -5,8 +5,8 @@ import { toast } from "../libs/toast";
 
 const pimage = document.getElementById('Productimg');
 const pname = document.getElementById('Productname');
-const pcolor = document.getElementById('Productsize');
-const psize = document.getElementById('Productcolor');
+const psize = document.getElementById('Productsize');
+const pcolor = document.getElementById('Productcolor');
 const pprice = document.getElementById('Productprice');
 const minusButton = document.getElementById('minus');
 const plusButton = document.getElementById('plus');
@@ -115,16 +115,17 @@ function displayProductInfo(product) {
         let selectedColorButton = null;   
         colorsArray.forEach(color => {  
           const colorButton = document.createElement('button');  
-          colorButton.style.backgroundColor = color; 
-          colorButton.style.padding = '14px 17px';  
-          colorButton.style.border = "1px solid black";  
+          colorButton.style.backgroundColor = color;
+          colorButton.style.padding = '0px 25px';  
+          colorButton.style.position ='relative'
+          colorButton.style.border = "1px solid black"; 
           colorButton.style.borderRadius = "50%";  
           colorButton.style.marginLeft = '3px'
           colorButton.onclick = () => {  
            if (selectedColorButton) {  
             selectedColorButton.innerHTML = '';  
            }  
-           const img1 = '<img src="/public/checkm.png"/>'
+           const img1 = '<i class="fas fa-check w-full text-3xl absolute px-8 top-2 right-2  text-gray-400"></i>'
            colorButton.innerHTML= img1  
            selectedColorButton = colorButton;  
           };  

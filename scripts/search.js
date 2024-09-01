@@ -50,7 +50,7 @@ async function displayResults(result) {
         paginatedItems.forEach((product) => {  
            const productHTML = `  
            <div class="flex flex-col mt-4" data-id="${product.id}">  
-              <img src="${product.imageURL}" alt="${product.name}" class="w-48 h-48 mb-3">  
+              <img src="${product.imageURL}" alt="${product.name}">  
               <p class="text-lg font-bold">${product.name}</p>  
               <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>  
            </div>  
@@ -86,10 +86,9 @@ function setupPagination(totalItems) {
         pageButton.innerText = i;
         pageButton.classList.add('pagination-button');
         // pageButton.className = "w-10 ml-4 border-2 px-4 py-2 cursor-pointer";
-        pageButton.style.paddingTop = '8px'
-        pageButton.style.paddingBottom = '8px'
-        pageButton.style.paddingLeft = '16px'
-        pageButton.style.paddingRight = '16px'
+        pageButton.style.padding = '8px 16px'
+        pageButton.style.marginLeft = '16px'
+        pageButton.style.border = '1px solid black'
         pageButton.style.backgroundColor = (i === 1) ? 'black' : 'white';
         pageButton.style.color = (i === 1) ? 'white' : 'black';
 

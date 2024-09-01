@@ -14,7 +14,7 @@
     <div class="grid grid-cols-1 grid-rows-4 overflow-hidden">
         
         <div class="justify-center items-center relative"> 
-            <i id="goonboardingbtn" onclick="GoToonboard()" class="fas fa-arrow-left text-2xl py-1 px-4 hover:text-sky-500 hover:cursor-pointer"></i>
+            <i id="goonboardingbtn" onclick="GoToonboard()" class="fas fa-arrow-left text-2xl py-6 px-4 hover:text-sky-500 hover:cursor-pointer"></i>
         </div>
             <div class="mx-auto mt-[-90px] h-16">
                 <img src="public/logo.png" alt="logo" width="40">
@@ -23,11 +23,11 @@
             <h1 class="text-3xl font-bold font-inter ">Login to Your Account</h1>
         </div>
         <div class="mt-[-170px]">
-            <form class="max-w-sm mx-auto" id="login-form">
+            <form class="max-w-sm mx-auto px-6" id="login-form">
                 <label for="username" class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Username</label>
                 <div class="relative">
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                    <i class="fas fa-bag-shopping"></i>
+                    <i class="fas fa-envelope"></i>
                 </div>
                 <input type="text" id="username" name="username" class="bg-gray-50 border border-gray-300 text-gray-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-100 dark:border-gray-200 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com">
                 </div>
@@ -44,8 +44,8 @@
                     <p onclick="GoToSignUp()">Sign Up</p>
                 </div>
 
-                <div class="font-inter w-16 mt-24 cursor-pointer hover:text-gray-400">
-                    <button id="sbtn" class="bg-gray-300 w-[380px] py-3 rounded-full text-white">Login</button>
+                <div class="font-inter w-full mt-24 cursor-pointer hover:text-gray-400 mx-auto">
+                    <button id="sbtn" class="bg-gray-300  py-3 px-32 rounded-full text-white">Login</button>
                 </div>
             </form>
         </div>

@@ -28,7 +28,7 @@ function displayBrands(brandArray) {
     const allButton = document.createElement('button');
     allButton.textContent = 'All';
     allButton.setAttribute("id", "allbtn");
-    allButton.classList = "bg-black text-white rounded-full py-1 px-9 border-2 font-semibold";
+    allButton.classList = "bg-black text-white rounded-full py-1 px-9 border font-semibold";
     allButton.addEventListener("click",  () => {
         currentBrand = null;
         fetchProducts(1);
@@ -40,7 +40,7 @@ function displayBrands(brandArray) {
         const brandbtn = document.createElement('button');
         brandbtn.dataset.bname = brand;
         brandbtn.setAttribute("id", "brandbtn");
-        brandbtn.classList = "bg-white text-black rounded-full py-1 px-9 border-2 font-semibold";
+        brandbtn.classList = "bg-white text-black rounded-full py-1 px-9 border font-semibold";
         brandbtn.textContent = brand;
         brandbtn.addEventListener("click", () => {
             currentBrand = brand;
@@ -114,7 +114,7 @@ function displayProducts(products) {
     products.forEach(product => {  
        productDiv.innerHTML += `  
         <div class="flex flex-col mt-4" data-id="${product.id}">  
-        <img src="${product.imageURL}" alt="${product.name}" class="w-48 h-48 mb-3">  
+        <img src="${product.imageURL}" alt="${product.name}" >  
         <p class="text-lg font-bold">${product.name}.</p>   
         <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>  
         </div>  
@@ -156,11 +156,11 @@ function setupPagination() {
     
     for (let i = 1; i <= totalPages; i++) {
         const button = document.createElement("button");
-        button.className ="w-10 ml-4 border-2 px-4 py-2 ml-2 rounded-[10px] cursor-pointer";
+        button.className ="w-10 ml-4 border px-4 py-2 ml-2 rounded-[10px] cursor-pointer";
         button.textContent = i;
    
         if (i === currentpage) {
-            button.classList.add("bg-[#343a40]", "text-white");
+            button.classList.add("bg-black", "text-white");
         }
         button.addEventListener("click", () => {
             fetchProducts(i);

@@ -45,15 +45,16 @@
       <!-- Size Options -->  
       <div class=" grid grid-cols-2 px-3 py-2">  
         <h3 class="w-14 text-lg font-bold" >Size</h3> 
-        <h3 class="w-16 text-lg font-bold" >Color</h3>   
-        <div class="w-40 flex flex-wrap justify-start pt-2 " id="Productcolor" >  
+        <h3 class="w-16 text-lg font-bold" >Color</h3>    
+      </div>  
+
+      <div class="grid grid-cols-2 pb-6">
+        <div class="w-40 flex flex-wrap justify-start ml-2 pt-2 " id="Productsize" >  
         </div>  
         
-        <div class="w-52 flex flex-wrap justify-start pt-2 h-12" id="Productsize">  
-            
-            
-        </div>  
-      </div>  
+        <div class="w-full space-x-2 flex justify-start relative overflow-auto scrollbar-hide" id="Productcolor">  
+        </div> 
+      </div>
   
       <!-- Quantity and Add to Cart -->  
       <div class="px-4 py-2">  
@@ -66,14 +67,14 @@
                <button class="bg-gray-200 rounded-full w-8 h-8 flex justify-center items-center text-3xl mt-[2px]" id="plus">+</button>  
               </div>
            </div>  
-          <div class="grid grid-cols-2 pb-10">
-            <div class="w-24">
+          <div class="w-[344px] grid grid-cols-2 pb-1">
+            <div class="w-[96px] ">
                 <p class="text-sm pb-1 opacity-50">Total price</p>
                 <h1 class="font-semibold text-2xl" id="Productprice"></h1>
             </div>
-            <div class="w-full py-3 mx-auto ">
-                <button class=" w-full bg-black text-white rounded-full py-4 p-10">  
-                    <i class="fas fa-bag-shopping fa-lg mr-2 "></i> Add to Cart  
+            <div class="w-[200px] ml-[-40px] py-3 ">
+                <button class=" w-full bg-black text-white rounded-full  py-4 p-10">  
+                    <i class="w-200 fas fa-bag-shopping fa-lg mr-2 "></i> Add to Cart  
                  </button> 
             </div>
           </div> 
