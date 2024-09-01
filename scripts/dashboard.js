@@ -1,18 +1,9 @@
 import { errorHandler } from "../libs/error-handler";
 import { getUserInfo } from "../apis/services/user.service";
-// import { removeSessionToken } from "../libs/session-manager";
-// import {
-//   initTaskCardListeners,
-//   taskCardGenerator,
-// } from "../components/task-card";
 
-// const tasksListContainer = document.getElementById("tasks-list-container");
+
 const greeting = document.getElementById('greeting');
 const username = document.getElementById("username");
-// document.getElementById("logout-btn").addEventListener("click", () => {
-//   removeSessionToken();
-//   window.location.href = "/";
-// });
 
 async function fetchUserInfo() {
   try {

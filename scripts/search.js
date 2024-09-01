@@ -74,7 +74,6 @@ function redirectToDetails(id) {
    window.location.href = `/product-details.html?id=${id}`;
  }
  
- // Make it globally accessible
  window.redirectToDetails = redirectToDetails;
   
 

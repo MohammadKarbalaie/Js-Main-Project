@@ -2,7 +2,7 @@ import { getProducts, getBrands } from "../apis/services/products.service";
 import { getBrandByName } from "../apis/services/brand.service";
 import { toast } from "../libs/toast";
 
-let currentBrandButton = null;
+
 let currentpage = 1;
 let totalproducts = 0;
 let currentBrand = null;
@@ -156,7 +156,7 @@ function setupPagination() {
     
     for (let i = 1; i <= totalPages; i++) {
         const button = document.createElement("button");
-        button.className ="w-10 ml-4 border-2 px-2 py-2 rounded-[10px] cursor-pointer";
+        button.className ="w-10 ml-4 border-2 px-4 py-2 ml-2 rounded-[10px] cursor-pointer";
         button.textContent = i;
    
         if (i === currentpage) {

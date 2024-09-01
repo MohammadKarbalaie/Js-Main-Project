@@ -2,7 +2,7 @@ import { errorHandler } from "../libs/error-handler";
 import { GetProductsInfo } from "../apis/services/product-details.servies";
 import { toast } from "../libs/toast";
 
-// Get HTML elements for displaying product information
+
 const pimage = document.getElementById('Productimg');
 const pname = document.getElementById('Productname');
 const pcolor = document.getElementById('Productsize');
@@ -49,7 +49,7 @@ toggleButton.addEventListener('click', () => {
 
 
 
-// Function to fetch product info based on ID
+
 async function fetchProductInfo(id) {
     try {
         const response = await GetProductsInfo(id);
@@ -59,23 +59,23 @@ async function fetchProductInfo(id) {
     }
 }
 let selectedSize = null;
-// Function to display product information in the UI
+
 function displayProductInfo(product) {
     pimage.src = product.imageURL;
     pname.textContent = product.name;
     pprice.textContent = `$${product.price}`+ "."+"00"
 
-        // Display sizes
+       
         psize.innerHTML = '';
-        const sizesArray = product.sizes.split('|'); // Split sizes string into an array
+        const sizesArray = product.sizes.split('|'); 
         sizesArray.forEach(size => {
             const sizeButton = document.createElement('button');
             sizeButton.textContent = size;
             sizeButton.style.border = "1px solid black";
             sizeButton.style.borderRadius = "50%";
-            sizeButton.style.padding = '10px 15px'; // Add some margin for better spacing
+            sizeButton.style.padding = '10px 15px'; 
     
-            // Set initial styles
+       
             if (selectedSize === size) {
                 sizeButton.style.backgroundColor = "black";
                 sizeButton.style.color = "white";
@@ -84,9 +84,9 @@ function displayProductInfo(product) {
                 sizeButton.style.color = "black";
             }
     
-            // Add click event listener
+            
             sizeButton.onclick = () => {
-                // Reset previous selected size button
+                
                 if (selectedSize) {
                     const previousButton = psize.querySelector(`button[data-size='${selectedSize}']`);
                     if (previousButton) {
@@ -95,20 +95,18 @@ function displayProductInfo(product) {
                     }
                 }
     
-                // Update selected size
+             
                 selectedSize = size;
-                sizeButton.style.backgroundColor = "black"; // Set selected button background
-                sizeButton.style.color = "white"; // Set selected button text color
+                sizeButton.style.backgroundColor = "black"; 
+                sizeButton.style.color = "white"; 
     
-                // Call selectSize function if needed
-                 // Ensure selectSize function is defined
+              
+                
             };
     
-            // Set a data attribute to easily identify the button later
             sizeButton.setAttribute('data-size', size);
             psize.appendChild(sizeButton);
         });
-
 
 
 
@@ -118,14 +116,15 @@ function displayProductInfo(product) {
         colorsArray.forEach(color => {  
           const colorButton = document.createElement('button');  
           colorButton.style.backgroundColor = color; 
-          colorButton.style.padding = '10px 18px';  
+          colorButton.style.padding = '14px 17px';  
           colorButton.style.border = "1px solid black";  
           colorButton.style.borderRadius = "50%";  
+          colorButton.style.marginLeft = '3px'
           colorButton.onclick = () => {  
            if (selectedColorButton) {  
             selectedColorButton.innerHTML = '';  
            }  
-           const img1 = '<img src="/public/checkm.ico"/>'
+           const img1 = '<img src="/public/checkm.png"/>'
            colorButton.innerHTML= img1  
            selectedColorButton = colorButton;  
           };  
@@ -133,7 +132,7 @@ function displayProductInfo(product) {
         });
 }
 
-// Function to get URL parameters
+
 function getQueryParams() {
     const params = new URLSearchParams(window.location.search);
     return {
@@ -141,13 +140,13 @@ function getQueryParams() {
     };
 }
 
-// Extract the product ID from the URL
+
 const { id } = getQueryParams();
 
-// Fetch product information when the page loads
+
 loadProductDetails(id);
 
-// Fetch product information using the ID
+
 async function loadProductDetails(id) {
     if (id) {
         await fetchProductInfo(id);

@@ -50,6 +50,7 @@ function updatePagination(currentPage) {
         pageButton.className = "pagination-button";
         pageButton.style.padding= '10px 15px'
         pageButton.style.border = "1px solid gray"
+        pageButton.style.margin ="0px 10px"
         pageButton.style.backgroundColor = (i === currentPage) ? 'black' : 'white';
         pageButton.style.color = (i === currentPage) ? 'white' : 'black';
 
