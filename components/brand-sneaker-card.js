@@ -28,10 +28,11 @@ function displayBrands(brandArray) {
     const allButton = document.createElement('button');
     allButton.textContent = 'All';
     allButton.setAttribute("id", "allbtn");
-    allButton.classList = "bg-white rounded-full py-1 px-9 border-2 font-semibold";
+    allButton.classList = "bg-black text-white rounded-full py-1 px-9 border-2 font-semibold";
     allButton.addEventListener("click",  () => {
         currentBrand = null;
         fetchProducts(1);
+        updateButtonStyles(allButton);
     });
     brandList.appendChild(allButton);
 
@@ -39,9 +40,27 @@ function displayBrands(brandArray) {
         const brandbtn = document.createElement('button');
         brandbtn.dataset.bname = brand;
         brandbtn.setAttribute("id", "brandbtn");
-        brandbtn.classList = "bg-white rounded-full py-1 px-9 border-2 font-semibold";
+        brandbtn.classList = "bg-white text-black rounded-full py-1 px-9 border-2 font-semibold";
         brandbtn.textContent = brand;
+        brandbtn.addEventListener("click", () => {
+            currentBrand = brand;
+            fetchProducts(1);
+            updateButtonStyles(brandbtn);
+        });
         brandList.appendChild(brandbtn); 
+    });
+}
+
+function updateButtonStyles(selectedButton) {
+    const buttons = document.querySelectorAll('#brn button');
+    buttons.forEach(button => {
+        if (button === selectedButton) {
+            button.classList.add("bg-black", "text-white");
+            button.classList.remove("bg-white", "text-black");
+        } else {
+            button.classList.add("bg-white", "text-black");
+            button.classList.remove("bg-black", "text-white");
+        }
     });
 }
 
@@ -102,7 +121,7 @@ function displayProducts(products) {
        `;  
     });  
    
-    // Add event listener to each product element  
+ 
     const productElements = productDiv.children;  
     Array.from(productElements).forEach(element => {  
        element.addEventListener('click', () => {  
@@ -114,10 +133,9 @@ function displayProducts(products) {
 
 function redirectToDetails(id) {
     window.location.href = `/product-details.html?id=${id}`;
-  }
+}
   
-  // Make it globally accessible
-  window.redirectToDetails = redirectToDetails;
+window.redirectToDetails = redirectToDetails;
 
 async function clickBrand(event){
     let brandName = event.target.textContent;
@@ -154,10 +172,3 @@ function setupPagination() {
 
 fetchProducts(1);
 fetchAllProductsByBrand();
-
-
-
-// (async function() {
-//     await getBrandHome();
-// })();
-
