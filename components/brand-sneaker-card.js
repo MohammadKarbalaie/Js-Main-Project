@@ -2,7 +2,6 @@ import { getProducts, getBrands } from "../apis/services/products.service";
 import { getBrandByName } from "../apis/services/brand.service";
 import { toast } from "../libs/toast";
 
-
 let currentpage = 1;
 let totalproducts = 0;
 let currentBrand = null;
@@ -76,7 +75,7 @@ function displayAllProductsByBrand(products) {
          ${brandProducts.map(product => `  
            <div class="flex flex-col mt-4">  
            <img src="${product.imageURL}" alt="${product.name}" class="w-48 h-48 mb-3">  
-           <p class="text-lg font-bold">${product.name}.</p>   
+           <p class="text-lg font-bold">${truncateName(product.name)}</p>   
            <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>  
            <p>${product.name}</p>
            </div>  
@@ -115,13 +114,12 @@ function displayProducts(products) {
        productDiv.innerHTML += `  
         <div class="flex flex-col mt-4" data-id="${product.id}">  
         <img src="${product.imageURL}" alt="${product.name}" >  
-        <p class="text-lg font-bold">${product.name}.</p>   
+        <p class="text-lg font-bold">${truncateName(product.name)}</p>   
         <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>  
         </div>  
        `;  
     });  
    
- 
     const productElements = productDiv.children;  
     Array.from(productElements).forEach(element => {  
        element.addEventListener('click', () => {  
@@ -129,7 +127,7 @@ function displayProducts(products) {
          redirectToDetails(productId);  
        });  
     });  
- }
+}
 
 function redirectToDetails(id) {
     window.location.href = `/product-details.html?id=${id}`;
@@ -168,6 +166,10 @@ function setupPagination() {
     
         paginationDiv.appendChild(button);
     }
+}
+
+function truncateName(name) {
+    return name.split(' ').length > 2 ? name.split(' ').slice(0, 2).join(' ') + '...' : name;
 }
 
 fetchProducts(1);

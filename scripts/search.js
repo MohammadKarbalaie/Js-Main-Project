@@ -1,17 +1,21 @@
 import { getSearch } from "../apis/services/search.service";  
 import { errorHandler } from "../libs/error-handler";  
-import { renderResults } from "../components/search-failed"  
+import { renderResults } from "../components/search-failed";  
   
 const input = document.getElementById('text-search');  
 const container = document.getElementById('p-Elemnet');  
 const paginationContainer = document.getElementById('pagination'); 
 let currentPage = 1;  
 const itemsPerPage = 10;  
+let debounceTimer;  
   
 async function Search() {  
-   input.addEventListener("change", async function (event) {  
-      currentPage = 1;  
-      await fetchResults();  
+   input.addEventListener("input", function (event) {  
+      clearTimeout(debounceTimer);  
+      debounceTimer = setTimeout(async () => {  
+         currentPage = 1;  
+         await fetchResults();  
+      }, 100);  
    });  
 }  
 
@@ -20,11 +24,11 @@ async function fetchResults() {
       let find = String(input.value).toUpperCase();  
       const response = await getSearch(1, find);
       const result = response.data;   
-      if (result.length!= 0) {  
+      if (result.length != 0) {  
         displayResults(result);  
         setupPagination(result.length);  
       } else {  
-        renderResults(input.value)
+        renderResults(input.value);  
       }  
    } catch (error) {  
       errorHandler(error);  
@@ -35,10 +39,10 @@ async function displayResults(result) {
    try {  
       const div = document.getElementById('noResult');
       const render = document.getElementById('div-render-container');
-      if(div){
-        div.remove();
+      if (div) {  
+        div.remove();  
       } 
-      render.style.display = "block"   
+      render.style.display = "block";   
       container.innerHTML = '';  
       const start = (currentPage - 1) * itemsPerPage;  
       const end = start + itemsPerPage;  
@@ -51,7 +55,7 @@ async function displayResults(result) {
            const productHTML = `  
            <div class="flex flex-col mt-4" data-id="${product.id}">  
               <img src="${product.imageURL}" alt="${product.name}">  
-              <p class="text-lg font-bold">${product.name}</p>  
+              <p class="text-lg font-bold">${truncateName(product.name)}</p>  
               <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>  
            </div>  
            `;  
@@ -85,10 +89,9 @@ function setupPagination(totalItems) {
         const pageButton = document.createElement('button');
         pageButton.innerText = i;
         pageButton.classList.add('pagination-button');
-        // pageButton.className = "w-10 ml-4 border-2 px-4 py-2 cursor-pointer";
-        pageButton.style.padding = '8px 16px'
-        pageButton.style.marginLeft = '16px'
-        pageButton.style.border = '1px solid black'
+        pageButton.style.padding = '8px 16px';
+        pageButton.style.marginLeft = '16px';
+        pageButton.style.border = '1px solid black';
         pageButton.style.backgroundColor = (i === 1) ? 'black' : 'white';
         pageButton.style.color = (i === 1) ? 'white' : 'black';
 
@@ -113,6 +116,9 @@ function updateButtonStyles(selectedPage) {
         }
     }
 }
- 
+
+function truncateName(name) {
+   return name.split(' ').length > 2 ? name.split(' ').slice(0, 2).join(' ') + '...' : name;
+}
   
-Search()
+Search();

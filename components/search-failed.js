@@ -13,9 +13,8 @@ export function renderResults(keyword) {
         
         <!-- Main content -->  
         <div class="flex-grow flex flex-col items-center justify-center">  
-            <div class="relative w-32 h-32">  
-                <i class="fas fa-clipboard text-gray-200 text-7xl absolute top-0 left-0"></i>  
-                <i class="fas fa-clipboard text-gray-200 text-7xl absolute top-4 left-8"></i>  
+            <div class="relative w-32 h-32">   
+                <img src="/public/not found.png" class=""> 
             </div>  
             <h2 class="text-2xl font-bold mt-4">Not Found</h2>  
             <p class="text-center text-lg mt-2 px-8">  

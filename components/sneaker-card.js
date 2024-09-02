@@ -12,7 +12,6 @@ async function fetchProducts(page = 1, brand = null) {
     }  
 }
 
-
 function displayProducts(products) {
     const productDiv = document.getElementById('p-Elemnet');
     productDiv.innerHTML = '';
@@ -23,7 +22,7 @@ function displayProducts(products) {
         productItem.style.cursor = "pointer";
         productItem.innerHTML = `
             <img src="${product.imageURL}" alt="${product.name}"> 
-            <p class="text-lg font-bold">${product.name}</p>  
+            <p class="text-lg font-bold">${truncateName(product.name)}</p>  
             <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>
         `;
   
@@ -31,7 +30,11 @@ function displayProducts(products) {
   
         productDiv.appendChild(productItem);
     });
-  }
+}
+
+function truncateName(name) {
+    return name.split(' ').length > 2 ? name.split(' ').slice(0, 2).join(' ') + '...' : name;
+}
 
 function redirectToDetails(id) {
   window.location.href = `/product-details.html?id=${id}`;

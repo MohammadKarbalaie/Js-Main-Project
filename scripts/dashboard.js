@@ -1,5 +1,7 @@
 import { errorHandler } from "../libs/error-handler";
 import { getUserInfo } from "../apis/services/user.service";
+import { removeSessionToken } from "../libs/session-manager"
+
 
 
 const greeting = document.getElementById('greeting');
@@ -35,6 +37,16 @@ async function displayGreeting() {
         console.error("Error displaying greeting:", error);
     }
 }
+
+
+function goout() {
+    const response =  removeSessionToken()
+    window.location.href = '/login.html';
+}
+
+const logout = document.getElementById('logout');
+logout.addEventListener('click',goout) 
+
 
 displayGreeting();
 
