@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+ #p-Elemnet img{
+    width: 132px;
+    height: 132px;
+ }
 #pagesb span{
     border-radius: 0px;
     height: 3px;

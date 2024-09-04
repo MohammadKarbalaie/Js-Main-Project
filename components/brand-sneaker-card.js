@@ -73,9 +73,9 @@ function displayAllProductsByBrand(products) {
         <h2 class="text-lg font-bold">${brand}</h2>  
         <div class="flex flex-col mt-4">  
          ${brandProducts.map(product => `  
-           <div class="flex flex-col mt-4">  
+           <div class="flex flex-col mt-2">  
            <img src="${product.imageURL}" alt="${product.name}" class="w-48 h-48 mb-3">  
-           <p class="text-lg font-bold">${truncateName(product.name)}</p>   
+           <p class="text-lg font-bold mt-4">${truncateName(product.name)}</p>   
            <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>  
            <p>${product.name}</p>
            </div>  

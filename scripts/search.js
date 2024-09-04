@@ -55,7 +55,7 @@ async function displayResults(result) {
            const productHTML = `  
            <div class="flex flex-col mt-4" data-id="${product.id}">  
               <img src="${product.imageURL}" alt="${product.name}">  
-              <p class="text-lg font-bold">${truncateName(product.name)}</p>  
+              <p class="text-lg font-bold mt-2">${truncateName(product.name)}</p>  
               <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>  
            </div>  
            `;  
